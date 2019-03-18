@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import moment from "moment";
 
 import './assets/stylesheets/style.css'
 
@@ -54,7 +55,7 @@ class App extends Component {
 
             {this.state.sensors.map(sensorPoint => 
               <tr key={sensorPoint.id}>  
-                <td>{sensorPoint.timestamp}</td>
+                <td>{moment(sensorPoint.timestamp)}</td>
                 <td>{sensorPoint.temperature}</td>
                 <td>{sensorPoint.humidity}</td>
               </tr>
