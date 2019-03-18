@@ -44,7 +44,22 @@ class App extends Component {
   render() {
 
     return (
-        this.state.sensors.map(sensorPoint => <p>{sensorPoint.timeStamp}</p>)
+        <table>
+          <tr>
+            <th>Aikaleima</th>
+            <th>Lämpötila</th>
+            <th>Kosteus</th>
+          </tr>
+
+
+            {this.state.sensors.map(sensorPoint => 
+              <tr key={sensorPoint.id}>  
+                <td>{sensorPoint.timestamp}</td>
+                <td>{sensorPoint.temperature}</td>
+                <td>{sensorPoint.humidity}</td>
+              </tr>
+            )}
+        </table>
     );
   }
 }
