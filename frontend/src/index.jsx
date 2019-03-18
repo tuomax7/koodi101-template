@@ -19,13 +19,13 @@ const getSensorDataFromBackend = async () => {
   } catch (error) {
     console.error(error);
   }
-  return { greeting :"Could not get greeting from backend"};
+  return { sensors :"Could not get sensor data from backend"};
 };
 
-
+/*
 const BackendGreeting = (props) => (
   <div><p>Backend says: {props.greeting}</p></div>
-);
+);*/
 
 
 class App extends Component {
@@ -46,16 +46,15 @@ class App extends Component {
 
     return (
         <table>
-          <tr>
-            <th>Aikaleima</th>
-            <th>Lämpötila</th>
-            <th>Kosteus</th>
-          </tr>
-
+            <tr>
+              <th>Aikaleima</th>
+              <th>Lämpötila</th>
+              <th>Kosteus</th>
+            </tr>
 
             {this.state.sensors.map(sensorPoint => 
               <tr key={sensorPoint.id}>  
-                <td>{moment(sensorPoint.timestamp)}</td>
+                <td>{moment(sensorPoint.timestamp).startOf('hour').fromNow()}</td>
                 <td>{sensorPoint.temperature}</td>
                 <td>{sensorPoint.humidity}</td>
               </tr>
