@@ -46,11 +46,12 @@ class App extends Component {
 
     return (
         <table>
+        <tbody>
             <tr>
               <th>Aikaleima</th>
               <th>Lämpötila</th>
               <th>Kosteus</th>
-            </tr>
+           </tr>
 
             {this.state.sensors.map(sensorPoint => 
               <tr key={sensorPoint.id}>  
@@ -59,6 +60,8 @@ class App extends Component {
                 <td>{sensorPoint.humidity}</td>
               </tr>
             )}
+
+            </tbody>
         </table>
     );
   }
